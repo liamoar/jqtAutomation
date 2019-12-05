@@ -1,0 +1,16 @@
+{
+    "elements" : {
+        "emailInputfield" : "#email",
+        "passwordInputfield" : "#password",
+        "loginButton" : "form > :nth-child(2) > .btn",
+        "profileIcon" : ".btn"
+    },
+    "variables_frontend" : {
+        "email" : "avishr44@gmail.com",
+        "email_store" : "avishr44+1@gmail.com",
+        "password" : "123Admin@"
+        
+
+    }
+
+}
