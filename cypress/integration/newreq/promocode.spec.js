@@ -38,7 +38,7 @@ describe('promo_code', () => {
         
         cy.request('https://uat.jqt01.com/')
         var getAccessToken ={
-            url: https://uat.jqt01.com/
+            url: 'https://uat.jqt01.com/'
         }
 
         .wait(2000)
