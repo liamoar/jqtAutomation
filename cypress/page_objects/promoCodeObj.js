@@ -39,35 +39,33 @@ export function createNewPromoCode(promoCodeText){
 
 
 export function GetPromoCode(){
-    
   cy.wait(2000) 
     //parse api
      var options = {
         url: '/system/promo_code/all?page=1',
         headers: {'X-Requested-With': 'XMLHttpRequest'},
-        
       }
-    return cy.request(options);
+     return  new Promise((resolve, reject) => { 
+      cy.request(options).then((data)=>{
+        var  value = data.body.list[0].code 
+        cy.writeFile('cypress/fixtures/api.json', {promoCode: value}) 
+        cy.get('.header-avatar').click()
+          .get('a.dropdown-item').click().wait(1000)
+          .url()
+          .should('contain','/system/login')
+          .get('.alert').should('contain','You have been logged out!').wait(2000)
+        resolve(value);
+      });
+    
+    });
     // cy.then(()=>{
     //    newcode = this.value
     //   cy.log(newcode) 
     // })
-    
-    //api parse end //
-    cy.get('.header-avatar').click()
-      .get('a.dropdown-item').click().wait(1000)
-      .url()
-      .should('contain','/system/login')
-      .get('.alert').should('contain','You have been logged out!').wait(2000)
 }
 
-export function ScanPromoCode(code){  
-  
-  cy.log(code)
-  cy.wait(2000)
+export function ScanPromoCode(){  
   cy.UserLogin()
-  cy.log(code)
-    .visit('https://uat.jqt01.com/code-claim/'+code)
   
   
 }

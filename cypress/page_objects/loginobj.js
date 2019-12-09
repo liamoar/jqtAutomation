@@ -13,13 +13,16 @@ export function navigateFrontendUser(){
         if(elm.status == 401){
             cy.log('not logged in')
             cy.get(':nth-child(2) > .btn').click()
-            cy.get('#email').type('avishr44@gmail.com')
+            cy.get('#email').type('avishr44@gmail.com') 
             cy.get('#password').type('123Admin@')
             cy.get('form > :nth-child(2) > .btn').click().wait(2000)
-            let key = window.localStorage.setItem('token',elm.data.access_token)
-            cy.log(key)
+            cy.window().then(
+                window =>  cy.writeFile('cypress/fixtures/token.json', {token: window.localStorage.getItem("access_token")}) 
+             );
         }else{
-            cy.log('logged in')
+            cy.window().then(
+                window =>  cy.writeFile('cypress/fixtures/token.json', {token: window.localStorage.getItem("access_token")}) 
+             );
         }
     })
 }
