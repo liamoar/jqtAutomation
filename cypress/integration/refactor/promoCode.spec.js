@@ -15,13 +15,20 @@ describe('Promo Code', () => {
 
     it('Create a promo code', function() {
        // promoObj.createNewPromoCode('new code')
-        promoObj.GetPromoCode() 
+        promoObj.GetPromoCode().then((data)=>{
+            // newcode =data.body.list[0].code
+             var  value = data.body.list[0].code 
+             cy.log("aayo hai ",value)
+             cy.writeFile('cypress/fixtures/api.json', {promoCode: this.value}) 
+       
+           });
+           
     });
 
-    it('Scan the Promo Code', function() {
-       cy.log('avinash')
-       let code = this.api.promoCode
-       promoObj.ScanPromoCode(code) 
-    });
+    // it('Scan the Promo Code', function() {
+    //    cy.log('avinash')
+    //    let code = this.api.promoCode
+    //    promoObj.ScanPromoCode()
+    // });
 });
 

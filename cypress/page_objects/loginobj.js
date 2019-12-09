@@ -39,8 +39,8 @@ export function navigateFrontendStore(){
             cy.get('#email').type('avishr44+1@gmail.com')
             cy.get('#password').type('123Admin@')
             cy.get('form > :nth-child(2) > .btn').click().wait(2000)
-            let key = window.localStorage.setItem('token',elm.data.access_token)
-            cy.log(key)
+            //let key = window.localStorage.setItem('token',elm.data.access_token)
+            //cy.log(key)
         }else{
             cy.log('logged in')
         }

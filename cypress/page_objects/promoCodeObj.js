@@ -47,12 +47,7 @@ export function GetPromoCode(){
         headers: {'X-Requested-With': 'XMLHttpRequest'},
         
       }
-      cy.request(options).then((data)=>{
-     // newcode =data.body.list[0].code
-      this.value = data.body.list[0].code 
-      cy.log(this.value)
-      cy.writeFile('cypress/fixtures/api.json', {promoCode: this.value})  
-    })
+    return cy.request(options);
     // cy.then(()=>{
     //    newcode = this.value
     //   cy.log(newcode) 
@@ -66,7 +61,7 @@ export function GetPromoCode(){
       .get('.alert').should('contain','You have been logged out!').wait(2000)
 }
 
-export function ScanPromoCode(code){
+export function ScanPromoCode(code){  
   
   cy.log(code)
   cy.wait(2000)
