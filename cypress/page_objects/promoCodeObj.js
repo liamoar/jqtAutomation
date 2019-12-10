@@ -65,8 +65,7 @@ export function GetPromoCode(){
 }
 
 export function ScanPromoCode(){  
-  cy.UserLogin()
-  
-  
+  //cy.UserLogin()
+  cy.StoreLogin()
 }
 
