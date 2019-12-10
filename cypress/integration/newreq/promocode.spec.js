@@ -15,7 +15,6 @@ describe('promo_code', () => {
         cy.get('#name').type('Offer1')
         cy.get('#point').type('40')
         cy.get('#expire').type('{enter}')
-        
         cy.get('#validity_date').type(tomo)
         cy.get('#validity_date').type('{enter}')
         //cy.get('.btn-primary').should('be.enabled').click()
@@ -75,9 +74,8 @@ describe('promo_code', () => {
             var login = {
                 url : 'https://uat-api.jqt01.com/api/v1/profile',
                 method: 'GET',
-                headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjE4NywiSWQiOjQ2NjAsIkNsaWVudElkIjoxLCJBZG1pbklkIjoiIiwiZXhwIjoxNTc1NTMyNzkxfQ.rGfA5R397gzdR6R_KV_mSGDrx9aGuLWoA8ULtkBvum0'},
+                headers: {'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjE4NywiSWQiOjQ2NjAsIkNsaWVudElkIjoxLCJBZG1pbklkIjoiIiwiZXhwIjoxNTc1NTMyNzkxfQ.rGfA5R397gzdR6R_KV_mSGDrx9aGuLWoA8ULtkBvum0'},
                 //ailOnStatusCode : false,
-                
               }
 
             cy.request(login).then((elm)=>{
@@ -96,8 +94,7 @@ describe('promo_code', () => {
                     cy.visit('https://uat.jqt01.com/code-claim/'+a)
                 }
             })
-
-    })
+        })
 
     });
     

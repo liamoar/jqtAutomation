@@ -5,23 +5,22 @@ describe('Promo Code', () => {
     before(()=> {
         cy.CMSLogin()
         cy.get(':nth-child(11) > a > .fa').click()
-       // cy.fixture('api.json').as('api')
-        //cy.fixture('values.json').as('profile')
     });
 
     beforeEach(() => {
         cy.fixture('api.json').as('api')
     });
-
-    it('Create a promo code', function() {
+  it('Create a promo code', function() {
        // promoObj.createNewPromoCode('new code')
-        promoObj.GetPromoCode() 
+        promoObj.GetPromoCode().then((data)=>{
+             cy.log(data)
+           });
     });
 
     it('Scan the Promo Code', function() {
-       cy.log('avinash')
-       let code = this.api.promoCode
-       promoObj.ScanPromoCode(code) 
+        cy.log(this.api.promoCode)
+        promoObj.ScanPromoCode()
+        cy.visit('https://uat.jqt01.com/code-claim/9ae6c992-d402-4d9b-92d3-411eed36088e')
     });
 });
 
