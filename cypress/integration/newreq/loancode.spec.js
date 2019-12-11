@@ -1,12 +1,14 @@
 // <reference types="Cypress" />
 
 context('Loan code', () => {
+
     beforeEach(() => {
-      cy.visit('https://uat-admin.jqt01.com')
-      cy.get('#user-Username').type('admin')
-      cy.get('#user-CurrentPassword').type('123Admin@')
-      cy.get('.btn').click()
-      cy.fixture('values.json').as('profile')
+        cy.CMSLogin()
+    //   cy.visit('https://uat-admin.jqt01.com')
+    //   cy.get('#user-Username').type('admin')
+    //   cy.get('#user-CurrentPassword').type('123Admin@')
+        cy.get('.btn').click()
+        cy.fixture('values.json').as('profile')
     })
 
     it('loan page module', function() {
@@ -42,7 +44,7 @@ context('Loan code', () => {
 
     
       
-         let activeuser = this.profile.id
+        let activeuser = this.profile.id
         cy.get('.select2-selection').type('user115@')
         cy.log('This '+ inactiveuser +' is inactive so the user list should not be visible')
         cy.wait(1000)

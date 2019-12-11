@@ -72,4 +72,9 @@ Cypress.Commands.add('CMSLogin',()=>{
     cy.get('.btn').click()
     .url()
     .should('contain','/system')
+    .wait(2000)
+})
+
+Cypress.Commands.add('CmsLogin', function(){
+    login.navigateCmsLogin()
 })

@@ -94,3 +94,17 @@ export function navigateFrontendStore(){
 
     });
 }
+
+export function navigateCmsLogin(){
+    cy.visit('uat-admin.jqt01.com')
+    
+    //send request to if the user is loggedin or not
+    var options = {
+        url : 'https://uat-admin.jqt01.com/system/dashboard/all'
+    }
+
+    cy.request(options).then((elm)=>{
+        cy.log(elm.status)
+    })
+
+}
