@@ -97,14 +97,21 @@ export function navigateFrontendStore(){
 
 export function navigateCmsLogin(){
     cy.visit('uat-admin.jqt01.com')
-    
     //send request to if the user is loggedin or not
-    var options = {
-        url : 'https://uat-admin.jqt01.com/system/dashboard/all'
-    }
+    // var options = {
+    //     url : 'https://uat-admin.jqt01.com/system/dashboard/all'
+    // }
 
-    cy.request(options).then((elm)=>{
-        cy.log(elm.status)
+    // cy.request(options).then((elm)=>{
+    //     cy.log(elm.status)
+    // })
+    cy.visit('uat-admin.jqt01.com').then((elm)=>{
+        if(elm.contains('h1'){
+            cy.log('test')
+        }
+        else{
+            customElements.log
+        }
     })
 
 }
