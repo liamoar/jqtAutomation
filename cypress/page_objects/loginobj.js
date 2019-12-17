@@ -95,23 +95,49 @@ export function navigateFrontendStore(){
     });
 }
 
+// export function navigateCmsLogin(){
+//     cy.visit('uat-admin.jqt01.com')
+//     //send request to if the user is loggedin or not
+//      var options = {
+//          url : 'https://uat-admin.jqt01.com/system/dashboard/all',
+//          headers: {'X-Requested-With': 'XMLHttpRequest'},
+//          failOnStatusCode: false,
+//      }
+
+//     cy.request(options).then((elm)=>{
+//         if(elm.status == 401){
+//             cy.log("User is not logged in ")
+//             cy.get('#user-Username').type('admin')
+//             cy.get('#user-CurrentPassword').type('123Admin@')
+//             cy.get('.btn').wait(2000).click()
+//         }else{
+//             cy.log("loggedin")
+//         }
+//      })
+
+    
+// }
+
 export function navigateCmsLogin(){
     cy.visit('uat-admin.jqt01.com')
-    //send request to if the user is loggedin or not
-    // var options = {
-    //     url : 'https://uat-admin.jqt01.com/system/dashboard/all'
-    // }
+    // //send request to if the user is loggedin or not
+    //  var options = {
+    //      url : 'https://uat-admin.jqt01.com/system/dashboard/all',
+    //      headers: {'X-Requested-With': 'XMLHttpRequest'},
+    //      failOnStatusCode: false,
+    //  }
 
     // cy.request(options).then((elm)=>{
-    //     cy.log(elm.status)
-    // })
-    cy.visit('uat-admin.jqt01.com').then((elm)=>{
-        if(elm.contains('h1'){
-            cy.log('test')
-        }
-        else{
-            customElements.log
-        }
-    })
-
+    //     if(elm.status == 401){
+    //         cy.log("User is not logged in ")
+    //         cy.get('#user-Username').type('admin')
+    //         cy.get('#user-CurrentPassword').type('123Admin@')
+    //         cy.get('.btn').wait(2000).click()
+    //     }else{
+    //         cy.log("loggedin")
+    //     }
+    //  })
+             cy.get('#user-Username').type('admin')
+            cy.get('#user-CurrentPassword').type('123Admin@')
+            cy.get('.btn').click()
 }

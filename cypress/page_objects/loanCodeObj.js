@@ -1,6 +1,6 @@
 
 export function assignLoanCode(user){
-
+    cy.wait(2000)
     cy.get(':nth-child(5) > a > .fa').click()
     .url()
     .should('contain','/system/loan')
@@ -49,6 +49,15 @@ export function assignLoanCode(user){
    .url()
    .should('contain','system/loan')
    //check if that user is assigned a loan or not
-   cy.get('tbody > :nth-child(1) > :nth-child(2)').should('contain',user)
-   cy.get('tbody > :nth-child(1) > :nth-child(4)').should('contain','pending')
+   //cy.get('tbody > :nth-child(1) > :nth-child(2)').should('contain',user)
+   //cy.get('tbody > :nth-child(1) > :nth-child(4)').should('contain','pending')
+   //process logout
+   cy.get('.header-avatar').click()
+   cy.get('a.dropdown-item').click()
+   cy.get('.alert').should('contain','You have been logged out')
+   
+}
+
+export function approveLoanCode(){
+    
 }
