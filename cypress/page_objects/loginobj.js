@@ -13,6 +13,8 @@ export function navigateFrontendUser(){
             method: 'GET',
             failOnStatusCode: false,
         }
+
+       
         // Token null or not
         if (currentToken != null) { // Logged In User
             let token = currentToken;
