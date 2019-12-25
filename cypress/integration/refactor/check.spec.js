@@ -24,6 +24,7 @@ describe('check', () => {
                 option.headers = { 'Authorization': "Bearer " + token }
                 cy.request(option).then((elm) => {
                     cy.log(elm, option)
+                    debugger
                     cy.log('logged status', elm.status)
                     cy.log("confuse vaiyo hai")
                     if (elm.status == 401) {

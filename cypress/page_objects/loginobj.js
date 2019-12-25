@@ -74,7 +74,7 @@ export function navigateFrontendStore(){
                     // Login Again
                     cy.log('not logged in')
                     cy.get(':nth-child(2) > .btn').click()
-                    cy.get('#email').type('avishr44@gmail.com')
+                    cy.get('#email').type('avishr44+1@gmail.com')
                     cy.get('#password').type('123Admin@')
                     cy.get('form > :nth-child(2) > .btn').click().wait(2000)
                     // cy.window().then(
@@ -87,7 +87,7 @@ export function navigateFrontendStore(){
         } else {
             cy.log("ma baira xu hai ")
                 .get(':nth-child(2) > .btn').click()
-                .get('#email').type('avishr44@gmail.com')
+                .get('#email').type('avishr44+1@gmail.com')
                 .get('#password').type('123Admin@')
                 .get('form > :nth-child(2) > .btn').click().wait(2000)
            // .visit('https://uat.jqt01.com/code-claim/9ae6c992-d402-4d9b-92d3-411eed36088e')
