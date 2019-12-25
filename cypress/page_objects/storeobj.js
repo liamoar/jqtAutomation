@@ -22,6 +22,7 @@ export function checkStoreToggleButton(){
         cy.log('your store name is: ',storeName)
         if (getData.body.data.status == 'unpublish') {
             cy.log('eta xu ma')
+            
             //visit store list page and search for the store 
             cy.get('.ml-auto > :nth-child(3) > a').click()
             cy.get(':nth-child(3) > .form-group > #inputAddress').type(storeName)
