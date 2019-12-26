@@ -16,7 +16,7 @@ describe('Promo Code', () => {
              cy.log(data)
            });
     });
-
+    
     it('Scan the Promo Code', function() {
         cy.log(this.api.promoCode)
         promoObj.ScanPromoCode()
