@@ -16,7 +16,7 @@ export function checkStoreToggleButton(){
    
     cy.request(options).then((getData)=>{
         //debugger
-         //cy.log(getData.body.data.status)
+         cy.log(getData.body.data.status)
          // cy.log(getData.body.data.name)
         var storeName = getData.body.data.name
         cy.log('your store name is: ',storeName)
@@ -43,14 +43,25 @@ export function checkStoreToggleButton(){
             cy.get(':nth-child(2) > .btn-primary').click()
             
         } else {
+            cy.wait(2000)
             cy.log('baira xu hai ')
             cy.get('.ml-auto > :nth-child(3) > a').click()
+            cy.wait(2000)
             cy.get(':nth-child(3) > .form-group > #inputAddress').type(storeName)
             cy.get(':nth-child(2) > .btn-primary').click()
-
+            cy.wait(2000)
             //go to store module and toggle off 
-            cy.get('.btn').click()
-            cy.get('[href="/store-info"]').click()
+             cy.get('.btn').click()
+             cy.get('[href="/store-info"]').click()
+             cy.wait(2000)
+             cy.get(':nth-child(2) > .title-head > .edit-del > button').click()
+             cy.wait(2000)
+             cy.get('.slider').click()
+             cy.get('.col-lg-8 > .btn-primary').click()
+             cy.get('.ml-auto > :nth-child(3) > a').click()
+             cy.wait(2000)
+             cy.get(':nth-child(3) > .form-group > #inputAddress').type(storeName)
+             cy.get(':nth-child(2) > .btn-primary').click()
         }
     })
 }

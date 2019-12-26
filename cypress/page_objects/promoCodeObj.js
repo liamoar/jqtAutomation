@@ -22,7 +22,7 @@ export function createNewPromoCode(promoCodeText){
         url: '/system/promo_code/all?page=1',
         headers: {'X-Requested-With': 'XMLHttpRequest'}
       }
-
+      
       cy.request(options).then((data)=>{
         var a= data.body.list[0].code
         cy.log(a)
