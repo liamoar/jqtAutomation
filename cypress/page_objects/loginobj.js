@@ -26,7 +26,7 @@ export function navigateFrontendUser(){
                     // Login Again
                     cy.log('not logged in')
                     cy.get(':nth-child(2) > .btn').click()
-                    cy.get('#email').type('storeuser1@mailinator.com')
+                    cy.get('#email').type('avishr44+1@gmail.com')
                     cy.get('#password').type('123Admin@')
                     cy.get('form > :nth-child(2) > .btn').click().wait(2000)
                     // cy.window().then(
