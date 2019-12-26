@@ -9,6 +9,7 @@ describe('check store info', () => {
     beforeEach(function() {
         cy.get('.btn').click()
         cy.get('[href="/store-info"]').click()
+        cy.wait(2000)
         cy.get(':nth-child(2) > form > :nth-child(1) > :nth-child(2) > :nth-child(1) > .col-lg-8 > .form-control').invoke('text').as('storeName')
         cy.get(':nth-child(2) > form > :nth-child(1) > :nth-child(2) > :nth-child(1) > .col-lg-4').invoke('text').as('name')
     });
