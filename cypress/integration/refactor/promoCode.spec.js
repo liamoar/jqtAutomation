@@ -10,6 +10,7 @@ describe('Promo Code', () => {
     beforeEach(() => {
         cy.fixture('api.json').as('api')
     });
+    
   it('Create a promo code', function() {
        // promoObj.createNewPromoCode('new code')
         promoObj.GetPromoCode().then((data)=>{
@@ -20,7 +21,7 @@ describe('Promo Code', () => {
     it('Scan the Promo Code', function() {
         cy.log(this.api.promoCode)
         promoObj.ScanPromoCode()
-        cy.visit('https://uat.jqt01.com/code-claim/9ae6c992-d402-4d9b-92d3-411eed36088e')
+        cy.visit('https://uat.jqt01.com/code-claim/'+this.api.promoCode)
     });
 });
 

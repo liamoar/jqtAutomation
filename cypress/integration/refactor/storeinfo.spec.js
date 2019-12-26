@@ -6,6 +6,7 @@ describe('check store info', () => {
     before(() => {
         loginobj.navigateFrontendStore()
     });
+    
     beforeEach(function() {
         cy.get('.btn').click()
         cy.get('[href="/store-info"]').click()

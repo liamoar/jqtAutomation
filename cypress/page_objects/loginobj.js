@@ -13,8 +13,7 @@ export function navigateFrontendUser(){
             method: 'GET',
             failOnStatusCode: false,
         }
-
-       
+   
         // Token null or not
         if (currentToken != null) { // Logged In User
             let token = currentToken;
@@ -27,7 +26,7 @@ export function navigateFrontendUser(){
                     // Login Again
                     cy.log('not logged in')
                     cy.get(':nth-child(2) > .btn').click()
-                    cy.get('#email').type('storeuser1@mailinator.com')
+                    cy.get('#email').type('avishr44+1@gmail.com')
                     cy.get('#password').type('123Admin@')
                     cy.get('form > :nth-child(2) > .btn').click().wait(2000)
                     // cy.window().then(
@@ -49,7 +48,6 @@ export function navigateFrontendUser(){
 
     });
 }
-
 
 export function navigateFrontendStore(){
     cy.visit('https://uat.jqt01.com/')
@@ -121,7 +119,7 @@ export function navigateFrontendStore(){
 
 export function navigateCmsLogin(){
     cy.visit('uat-admin.jqt01.com')
-            cy.get('#user-Username').type('admin')
-            cy.get('#user-CurrentPassword').type('123Admin@')
-            cy.get('.btn').click()
+        cy.get('#user-Username').type('admin')
+        cy.get('#user-CurrentPassword').type('123Admin@')
+        cy.get('.btn').click()
 }
