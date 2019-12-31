@@ -52,7 +52,7 @@ export function generatePin(){
 }
 
 export function scanShoppingCode(walletAddress, pin, ticket){
-    var price = 1000
+    var price = 10
     if(price <= ticket){
         //visit ticket claim page
         cy.visit('https://uat.jqt01.com/ticket-claim/'+ walletAddress)
