@@ -6,5 +6,7 @@ export class TodoPage {
 
     addTodo(){
         cy.get('.newTodo').type(todo +"{enter}")
+        //pritam changes in pritam branch
+        
     }
 }
