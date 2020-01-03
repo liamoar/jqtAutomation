@@ -73,6 +73,7 @@ Cypress.Commands.add('CMSLogin',()=>{
     .url()
     .should('contain','/system')
     .wait(2000)
+    //cy.eyesCheckWindow('CMS Dashboard')
 })
 
 Cypress.Commands.add('CmsLogin', function(){
