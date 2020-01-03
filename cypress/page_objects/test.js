@@ -6,5 +6,6 @@ export class TodoPage {
 
     addTodo(){
         cy.get('.newTodo').type(todo +"{enter}")
+        //avinash changes
     }
 }
