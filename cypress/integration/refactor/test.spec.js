@@ -18,21 +18,27 @@ describe('assert data', () => {
                 cy.writeFile("cypress/fixtures/test.json", [{ class: getid }])
             }else{
                 cy.readFile("cypress/fixtures/test.json").then(data => {
-                    //debugger
-                    if(Array.isArray(data)){
-                        let totalKeys = data.map(function(datum){return Object.keys(datum)[0] });
-                        if(totalKeys.includes('class')){
-                            let index = totalKeys.indexOf("class");
-                            data[index].class = getid;
-                        }else{
-                            data.push({"class":getid});
-                        }
+                    let totalKeys = data.map(function(datum){return Object.keys(datum)[0] });
+                    debugger
+                    // if(Array.isArray(data)){
+                    //     let totalKeys = data.map(function(datum){return Object.keys(datum)[0] });
+                    //     if(totalKeys.includes('class')){
+                    //         let index = totalKeys.indexOf("class");
+                    //         data[index].class = getid;
+                    //     }else{
+                    //         data.push({"class":getid});
+                    //     }
                         
-                        fileData = data;
-                    }else{
-                        var fileData =  [data ,{ class: getid } ];
-                    } 
-                    cy.writeFile("cypress/fixtures/test.json", fileData);
+                    //     fileData = data;
+                    // }else{
+                    //     var fileData =  [data ,{ class: getid } ];
+                    // }
+                    if(Array.isArray(data)){
+                        cy.log(Object.keys(data))
+                    } else{
+                        cy.log('out')
+                    }
+                   // cy.writeFile("cypress/fixtures/test.json", fileData);
                 })
 
             }
