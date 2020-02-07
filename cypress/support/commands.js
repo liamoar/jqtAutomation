@@ -66,13 +66,14 @@ Cypress.Commands.add('UserLogin',function(){
 })
 
 Cypress.Commands.add('CMSLogin',()=>{
-    cy.visit('https://uat-admin.jqt01.com')
+    cy.visit('https://live-admin.jqt01.com')
     cy.get('#user-Username').type('admin')
     cy.get('#user-CurrentPassword').type('123Admin@')
     cy.get('.btn').click()
     .url()
     .should('contain','/system')
     .wait(2000)
+    //cy.eyesCheckWindow('CMS Dashboard')
 })
 
 Cypress.Commands.add('CmsLogin', function(){

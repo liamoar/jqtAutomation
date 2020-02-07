@@ -4,7 +4,7 @@ export function assignLoanCode(user){
     cy.get(':nth-child(5) > a > .fa').click()
     .url()
     .should('contain','/system/loan')
-    .get('tbody').find('tr').should('have.length',21)
+    //.get('tbody').find('tr').should('have.length',2)
    
     // check sorting 
     cy.get('tbody > :nth-child(1) > :nth-child(1)').as('firstvalue')
@@ -31,7 +31,7 @@ export function assignLoanCode(user){
     let inactiveuser = 'user1115@mailinator.com'
    // let activeuser = cy.readFile('cypress/fixtures/values.json').
 
-   cy.get('.select2-selection').type('user115@')
+   cy.get('.select2-selection').type('AU36300559')
    cy.log('This '+ inactiveuser +' is inactive so the user list should not be visible')
    cy.wait(1000)
    cy.get('.select2-search__field').clear()
@@ -44,7 +44,7 @@ export function assignLoanCode(user){
    cy.get('#amount').clear().type(20)
    cy.get('.btn-primary').should('be.enabled')
    //process the loan
-  // cy.get('.btn-primary').click()
+    cy.get('.btn-primary').click()
    .wait(2000)
    .url()
    .should('contain','system/loan')

@@ -12,15 +12,15 @@ describe('Promo Code', () => {
     });
     
   it('Create a promo code', function() {
-       // promoObj.createNewPromoCode('new code')
-        promoObj.GetPromoCode().then((data)=>{
+       promoObj.createNewPromoCode('code123')
+       promoObj.GetPromoCode().then((data)=>{
              cy.log(data)
            });
     });
     
     it('Scan the Promo Code', function() {
         cy.log(this.api.promoCode)
-        promoObj.ScanPromoCode()
+        promoObj.ScanPromoCode().wait(2000)
         cy.visit('https://uat.jqt01.com/code-claim/'+this.api.promoCode)
     });
 });

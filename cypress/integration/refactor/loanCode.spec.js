@@ -20,14 +20,14 @@ describe('loan code', () => {
         loanObj.assignLoanCode(activeuser)
     });
 
-//     it('Validate the assign loan in user module', () => {
-//         cy.UserLogin()
-//         .wait(2000)
-//         .get('.btn').click()
-//         .get('[href="/profile"]').click()
-//         cy.get(':nth-child(6) > .col-lg-8 > .card > .card-body > div > :nth-child(2)').scrollIntoView()
-//         cy.screenshot()
-//         cy.get('.card-body > div > :nth-child(3)').should('contain', '20 JQT')
-//         //cy.CmsLogin()
-//     });
+    it('Validate the assign loan in user module', () => {
+        cy.UserLogin()
+        .wait(2000)
+        .get('.btn').click()
+        .get('[href="/profile"]').click()
+        cy.get(':nth-child(6) > .col-lg-8 > .card > .card-body > div > :nth-child(2)').scrollIntoView()
+        cy.screenshot()
+        cy.get('.card-body > div > :nth-child(3)').should('contain', '20 JQT')
+        //cy.CmsLogin()
+    });
  });

@@ -5,7 +5,7 @@ export function getWalletAddres(){
     cy.get('.dropdown > .btn').click()
     cy.get('[href="/profile"]').click()
     var option = {
-        url : "https://uat-api.jqt01.com/api/v1/profile",
+        url : "https://live-api.jqt01.com/api/v1/profile",
         method: 'GET',
         failOnStatusCode: false,
         headers : {'Authorization': "Bearer " + token}
@@ -28,7 +28,7 @@ export function generatePin(){
     cy.get('[href="/generate-pin"]').click()
     cy.get('form > .btn').click()
     var option = {
-        url : "https://uat-api.jqt01.com/api/v1/pin?page=1",
+        url : "https://live-api.jqt01.com/api/v1/pin?page=1",
         method: 'GET',
         failOnStatusCode: false,
         headers : {'Authorization': "Bearer " + token}
@@ -54,13 +54,12 @@ export function generatePin(){
 export function scanShoppingCode(walletAddress, pin, ticket){
     var price = 10
     if(price <= ticket){
+        cy.log('test')
         //visit ticket claim page
-        cy.visit('https://uat.jqt01.com/ticket-claim/'+ walletAddress)
+        cy.UserLogin()
+        cy.visit('https://live.jqt01.com/point-claim/'+ walletAddress)
         //store login
-        cy.get('#email').type('storeuser1@mailinator.com')
-        cy.get('#password').type('123Admin@')
-        cy.get('form > :nth-child(2) > .btn').click()
-        cy.wait(2000)
+  
         //claim ticket page
         cy.get(':nth-child(1) > .col-sm-8 > .form-control').click().type(price)
         
@@ -70,10 +69,10 @@ export function scanShoppingCode(walletAddress, pin, ticket){
     }
     else{
         //visit ticket claim page
-        cy.visit('https://uat.jqt01.com/ticket-claim/'+ walletAddress)
+        cy.visit('https://live.jqt01.com/point-claim/'+ walletAddress)
         //store login
-        cy.get('#email').type('storeuser1@mailinator.com')
-        cy.get('#password').type('123Admin@')
+        cy.get('#email').type('testlives@mailinator.com')
+        cy.get('#password').type('Test@1234')
         cy.get('form > :nth-child(2) > .btn').click()
         cy.wait(2000)
         //claim ticket page

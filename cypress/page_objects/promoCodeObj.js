@@ -7,19 +7,21 @@ export function createNewPromoCode(promoCodeText) {
     .url()
     .should('contains', '/promo_code')
     .get('.btn-primary').should('be.disabled')
-    .get('#name').type(promoCodeText)
+    .get('#title').type(promoCodeText)
     .get('#point').type('40')
+    .get('#expire').type(today)
     .get('#expire').type('{enter}')
 
     .get('#validity_date').type(tomo)
     .get('#validity_date').type('{enter}')
-  get('.btn-primary').should('be.enabled').click().wait(1000)
+    .get('.btn-primary').should('be.enabled').click().wait(1000)
     .get(':nth-child(11) > a > .fa').click()
     .wait(3000)
 
   //parse api
   var options = {
-    url: '/system/promo_code/all?page=1',
+    url: 'https://live-admin.jqt01.com/system/promo_code/all?page=1',
+    method :  'get',
     headers: { 'X-Requested-With': 'XMLHttpRequest' }
   }
 
@@ -30,11 +32,11 @@ export function createNewPromoCode(promoCodeText) {
 
   //api parese end here //
 
-  cy.get('.header-avatar').click()
-    .get('a.dropdown-item').click().wait(1000)
-    .url()
-    .should('contain', '/system/login')
-    .get('.alert').should('contain', 'You have been logged out!')
+  // cy.get('.header-avatar').click()
+  //   .get('a.dropdown-item').click().wait(1000)
+  //   .url()
+  //   .should('contain', '/system/login')
+  //   .get('.alert').should('contain', 'You have been logged out!')
 }
 
 
