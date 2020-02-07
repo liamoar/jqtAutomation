@@ -4,14 +4,14 @@ describe('Message Notification', function(){
     before(function(){
         cy.viewport(1280, 720)
         cy.CMSLogin()   
-        var user = 'normaluser1@mailinator.com'
+        var user = 'testlives@mailinator.com'
         var message ='This is automated message'
         cy.writeFile('cypress/fixtures/user.json',{User : user, Message : message})
     })
 
     beforeEach(function(){
         cy.fixture('user.json').as('user')
-        cy.eyesOpen({appName: 'JQT',batchName: 'JQT Test 1'})
+        //cy.eyesOpen({appName: 'JQT',batchName: 'JQT Test 1'})
     })
 
     //afterEach(() => cy.eyesClose());

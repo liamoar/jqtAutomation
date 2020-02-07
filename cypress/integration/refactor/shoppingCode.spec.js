@@ -22,7 +22,6 @@ describe('shopping code', function(){
         var avaiTicket = this.walletAddress.Ticket
         var pin = this.pin.pinn
         cy.log('scan shopping code vitra aayeko wallet address' + walletAddress)
-        
         shoppingCodeObj.scanShoppingCode(walletAddress, pin, avaiTicket)
     })
 })
